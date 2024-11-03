@@ -15,4 +15,8 @@ jobs:
           port: 2222
           username: fana5143
           key: ${{ secrets.PRIVATE_KEY }}
-          script: "cd /var/www/html/ApacheDespliegue; git pull; npm run build"
+          script: |
+            cd /var/www/html/ApacheDespliegue
+            git pull
+            npm run build
+            sudo service php8.3-fpm reload
